@@ -90,10 +90,11 @@
         $('#height').html(`${$(window).height()} px / ${Math.floor($(window).height() * dpp)} dp`);
       }
 
-      $(document).ready(resize);
       $(window).resize(resize);
-
-      $('#dpp').on('input', resize);
+      $(document).ready(function() {
+          $('#dpp').on('input', resize);
+          resize();
+        });
 
     </script>
   </head>
