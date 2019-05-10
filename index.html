@@ -7,6 +7,10 @@
         margin: 0;
       }
 
+      div {
+        font-size: 2em;
+      }
+
       #horizontal, #vertical {
         position: absolute;
         background: black;
@@ -26,34 +30,75 @@
 
       #width {
         position: absolute;
-        left: 50%;
+        left: 60%;
         top: 22%;
       }
 
       #height {
         position: absolute;
         left: 22%;
-        top: 50%;
+        top: 60%;
       }
+
+      .arrow {
+        position: absolute;
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        padding: 6px;
+      }
+
+      .right {
+        margin: -6 2;
+        right: 0;
+        top: 20%;
+        transform: rotate(-45deg);
+      }
+
+      .left {
+        margin: -6 2;
+        left: 0;
+        top: 20%;
+        transform: rotate(135deg);
+      }
+
+      .down {
+        margin: 2 -6;
+        left: 20%;
+        bottom: 0;
+        transform: rotate(45deg);
+      }
+
+      .up {
+        margin: 2 -6;
+        left: 20%;
+        top: 0;
+        transform: rotate(225deg);
+      }
+
 
     </style>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <script language="javascript">
 
       function resize() {
-        console.log(`Resized to ${$(window).width()} x ${$(window).height()}`);
-        $('#width').html(`${$(window).width()} px / ??? dp`);
-        $('#height').html(`${$(window).height()} px / ??? dp`);
+        $('#width').html(`${$(window).width()} px / ${Math.floor($(window).width() / 1.28)} dp`);
+        $('#height').html(`${$(window).height()} px / ${Math.floor($(window).height() / 1.28)} dp`);
       }
 
       $(document).ready(resize);
-      $(document).resize(resize);
+      $(window).resize(resize);
 
     </script>
   </head>
   <body>
     <div id="horizontal"></div>
     <div id="vertical"></div>
+
+    <div class="arrow right"></div>
+    <div class="arrow left"></div>
+    <div class="arrow up"></div>
+    <div class="arrow down"></div>
+
     <div id="width">200 px / 120 dp</div>
     <div id="height">300 px / 150 dp</div>
   </body>
