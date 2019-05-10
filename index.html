@@ -41,6 +41,7 @@
     <script language="javascript">
 
       function resize() {
+        console.log(`Resized to ${$(window).width()} x ${$(window).height()}`);
         $('#width').html(`${$(window).width()} px / ??? dp`);
         $('#height').html(`${$(window).height()} px / ??? dp`);
       }
